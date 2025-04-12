@@ -1,0 +1,21 @@
+====== VM SCHEDULING STRATEGY COMPARISON REPORT ======
+
+RUNTIME COMPARISON:
+- Time-Shared Runtime: 0.19s
+- Space-Shared Runtime: 0.018s
+- Faster: Space-Shared
+
+PERFORMANCE METRICS:
+- Time-Shared Makespan: 200.1
+- Space-Shared Makespan: 200.1
+- Time-Shared Avg Exec Time: 200.0
+- Space-Shared Avg Exec Time: 40.0
+
+CONCLUSION:
+Based on makespan: Space-Shared is better
+Based on avg exec time: Space-Shared is better
+
+RECOMMENDATION:
+🎯 Choose based on priority:
+- Time-Shared → better average execution time.
+- Space-Shared → better makespan.

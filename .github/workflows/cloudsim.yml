@@ -1,0 +1,35 @@
+name: CloudSim CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]  # or any branch you're working on
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: 🐳 Set up Docker
+      uses: docker/setup-buildx-action@v3
+
+    - name: 🔨 Build Docker Image
+      run: docker build -t cloudsimproject .
+
+    - name: 📦 Run Docker Container and Generate Animations
+      run: |
+        mkdir output
+        docker run --rm -v ${{ github.workspace }}/output:/app/output cloudsimproject
+
+    - name: 📤 Upload MP4 Files as Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: CloudSim Animations
+        path: output/*.mp4

@@ -1,0 +1,16 @@
+# Ignore Python virtual environments
+venv/
+src/cloudsim/simulation/venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore animation output files
+/output/
+*.mp4
+*.gif
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
