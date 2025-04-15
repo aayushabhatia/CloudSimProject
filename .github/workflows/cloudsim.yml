@@ -2,7 +2,7 @@ name: CloudSim CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]  # or any branch you're working on
+    branches: [ main ]  # or your feature branch
 
 jobs:
   build-and-run:
@@ -29,7 +29,7 @@ jobs:
         docker run --rm -v ${{ github.workspace }}/output:/app/output cloudsimproject
 
     - name: 📤 Upload MP4 Files as Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: CloudSim Animations
-        path: output/*.mp4
+        path: output/
